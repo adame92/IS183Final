@@ -41,8 +41,13 @@ export class TankService {
     }
 
     deleteTank(id): Promise<Object> {
+        console.log(`from tank.service delete method......`);
+        return this.http.delete(`${this.apiUrl}/tank/id/${id}`).toPromise().then((resp) => {
+            let status = resp.json();
+            console.log('tank', status);
+            return status;
+        });
        // code here
-       return;
     }
 
     updateTank(id, tank): Promise<Object> {
