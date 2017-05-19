@@ -51,8 +51,12 @@ export class TankService {
     }
 
     updateTank(id, tank): Promise<Object> {
+        return this.http.put(`${this.apiUrl}/tank/id/${id}`,tank).toPromise().then((resp) => {
+            let tank = resp.json();
+            console.log('tank', tank);
+            return tank;
+        });
         // code here
-        return;
     }
     
 }
